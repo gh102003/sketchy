@@ -1,0 +1,13 @@
+.countdown {
+    font-weight: 800;
+}
+
+.round-countdown {
+    font-size: 1.5em;
+    font-weight: 600;
+    
+    .countdown {
+        font-size: 1.5em;
+        line-height: 1.2;
+    }
+}

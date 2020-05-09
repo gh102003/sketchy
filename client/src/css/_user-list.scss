@@ -1,0 +1,45 @@
+.user-list {
+    background-color: $colour-1;
+    border-radius: 1em;
+    color: white;
+    padding: 1em;
+    grid-column: 2/3;
+    align-self: flex-start;
+  
+    @media only screen and (max-width: 900px) {
+      position: fixed;
+      right: -80vw;
+      top: 0;
+      bottom: 0;
+      width: 70vw;
+      transition: right 300ms ease;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+  
+    .user {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      background-color: $colour-2;
+      padding: 0.6em 1em;
+      border-radius: 1em;
+      margin-bottom: 0.5em;
+  
+      &:last-child {
+        // margin-bottom: 0;
+      }
+    }
+  
+    &.user-list-visible {
+      @media only screen and (max-width: 900px) {
+        right: 0;
+      }
+    }
+  }

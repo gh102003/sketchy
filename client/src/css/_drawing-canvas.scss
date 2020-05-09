@@ -1,0 +1,84 @@
+.drawing-canvas {
+    cursor: crosshair;
+}
+
+.palette {
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    column-gap: 1em;
+    background-color: $colour-6;
+
+    @media only screen and (max-width: 900px) {
+        margin: 1em 0.2em;
+    }
+
+    button {
+        @media only screen and (max-width: 900px) {
+            padding: 0.5em 1em;
+        }
+    }
+
+    .colours {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(2, 1fr);
+
+        @media only screen and (max-width: 900px) {
+            grid-template-rows: repeat(3, 1fr);
+        }
+    }
+
+    .colour {
+        width: 2.5em;
+        height: 2.5em;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        @media only screen and (max-width: 900px) {
+            width: 2em;
+            height: 2em;
+        }
+
+        &:hover,
+        &:focus {
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            outline: none;
+        }
+        &.colour-active {
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+    }
+
+    .line-widths {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-self: stretch;
+    }
+
+    .line-width {
+        width: 2.5em;
+        background-color: black;
+        cursor: pointer;
+        padding: 0.05em 0;
+
+        &:hover,
+        &:focus {
+            background-color: #444;
+            outline: none;
+        }
+
+        &.line-width-active {
+            background-color: #666;
+        }
+
+        @media only screen and (max-width: 900px) {
+            width: 2em;
+            height: 2em;
+        }
+    }
+}

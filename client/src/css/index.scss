@@ -1,0 +1,178 @@
+$colour-1: #2e4052;
+// $colour-2: #415363;
+$colour-2: lighten(desaturate($colour-1, 9), 9);
+$colour-3: #2fad8b;
+$colour-4: #ad2f51;
+$colour-5: #d7ebef;
+$colour-6: lighten(desaturate($colour-5, $amount: 7), $amount: 7);
+
+$font: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+
+@import "forms";
+@import "drawing-canvas";
+@import "guessing-canvas";
+@import "countdown";
+@import "user-list";
+
+body {
+  margin: 0;
+  font-family: $font;
+  font-size: 1.1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // overflow: hidden;
+  background-color: $colour-5;
+
+  @media only screen and (max-width: 900px) {
+    font-size: 1em;
+  }
+}
+
+header {
+  background-color: $colour-3;
+  // color: white;
+  padding: 0.8em 1.5em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    margin: 0;
+    font-weight: 800;
+  }
+}
+
+h2 {
+  margin: 0 0 0.4em 0;
+  font-weight: 600;
+}
+
+.icon-with-label {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  line-height: 1.3;
+  cursor: pointer;
+  svg {
+    width: 2em;
+    margin: -0.2em 0;
+  }
+}
+
+.players-icon {
+  visibility: hidden;
+
+  @media only screen and (max-width: 900px) {
+    visibility: visible;
+  }
+}
+
+.game {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1em;
+  margin: 1em;
+
+  @media only screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+    margin: 0.8em;
+  }
+}
+
+.game-main {
+  justify-self: center;
+  width: max-content;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  position: relative;
+
+  .game-info {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // margin-bottom: 0.5em;
+    min-height: 3em;
+
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+.game-canvas {
+  /* Set view size of canvas, not the pixel size -- it will be scaled up */
+  height: 60vh;
+  background-color: $colour-6;
+  border-radius: 1em;
+  box-shadow: 0 0 0.8em transparentize($colour-1, $amount: 0.7) inset;
+
+  @media only screen and (max-width: 900px) {
+    width: 90vw;
+  }
+}
+
+.canvas-wrapper {
+  border-radius: 1em;
+  height: 60vh;
+  margin: 0.5em 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.guessing-answer {
+  font-size: 2em;
+}
+
+.user-setup {
+  position: fixed;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 20vh;
+  width: 80vw;
+  max-width: 400px;
+  background-color: $colour-3;
+  color: white;
+  border-radius: 1em;
+  padding: 1.5em;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+
+  h2 {
+    margin: 0;
+  }
+
+  input {
+    display: block;
+    margin: 1em 0 0 auto;
+
+    &[type="text"] {
+      width: stretch;
+    }
+  }
+}
+
+.waiting-screen {
+  display: flex;
+  flex-direction: column nowrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  text-align: center;
+  line-height: 1.2;
+  min-height: 60vh;
+
+  p {
+    max-width: 18em;
+  }
+}
+
+.credits {
+  padding: 1em;
+  line-height: 1.3;
+}
